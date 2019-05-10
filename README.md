@@ -18,7 +18,7 @@ Deze kunnen volledig in JavaScript worden ontwikkeld en dus ook met de ArcGIS Ja
 Het resultaat van dit innovatietraject is een voorbeeld voor een grote groep (Esri) JavaScript ontwikkelaars hoe ze met hun bestaande skillset betere applicaties kunnen ontwikkelen voor het gebruik op mobiele devices. 
 Daarmee kunnen ze onze bestaande, en potentieel nieuwe, klanten beter bedienen wat kan leiden tot een toename van de verkoop van Esri software (met name User Types) en potentieel een vebreding van het gebruik van Esri software in de markt.
 Zonder dit voorbeeldproject zullen JavaScript ontwikkelaars eerder kiezen voor bestaande voorbeelden van PWA's waarin concurrerende technologie wordt gebruikt.
-Bovendien is dit innovatietraject een invulling van een directe klantvraag die we anders via een partner (die we niet hebben, behalve de onbetrouwbare [MAARTEN..?]) hadden moeten invullen.
+Bovendien is dit innovatietraject een invulling van een directe klantvraag die we anders via een partner hadden moeten invullen.
 Recentelijk kregen wij van enkele gemeenten uit de metropoolregio (Zoetermeer, Rotterdam, Leidschendam-Voorburg, Capelle a/d IJssel en Den Haag) de vraag om een native app te ontwikkelen. 
 Ook hier was het kunnen aanbieden van de app in de diverse app stores een voorname drijfveer. Zij willen in het kader van het project 'Samen op Pad' een app beschikbaar stellen waarin mindervaliden openbare toiletten in hun omgeving kunnen vinden.
 Wij denken door deze app te ontwikkelen binnen dit innovatietraject deze klant te kunnen helpen en tegelijk een referentie project te creëren waarmee de verkoop van Esri software gestimuleerd zou kunnen worden.
