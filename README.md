@@ -42,12 +42,12 @@ Wij denken door deze app te ontwikkelen binnen dit innovatietraject de klant te 
 | :--- | :--- |
 | Data preparatie | 1-2 |
 | Basis JS app | 2-4 |
-| React | 4-8 |
-| PWA onderzoek | 3-6 |
-| PWA naar store | 6-12 |
+| React | 6-8 |
+| PWA onderzoek | 4-6 |
+| PWA naar store | 8-12 |
 | Contact met klant | 3-6 |
 | Overleg | 1-2 |
-| **Totaal** | **20-40** | 
+| **Totaal** | **25-40** | 
 
 ### Investeringen
 De kosten voor het aanbieden van Progressive Web Apps verschillen per app store:
