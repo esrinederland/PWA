@@ -45,5 +45,6 @@ De kosten voor het aanbieden van Progressive Web Apps verschillen per app store:
 - In de Microsoft Store kun je kostenloos je app te registeren. 
 - In de Google Play Store is het mogelijk om apps te hosten wanneer je eenmalig een account hebt geregistreerd voor $25.
 - Om apps te kunnen aanbieden in de Apple App Store is een Apple Developer Account nodig. Deze kost $99 per jaar.
+
 Op dit moment heeft Esri Nederland reeds een geregistreerd Google Play store account en een Apple App store account.
 Er zijn voor dit innovatietraject dus geen aanvullende investeringen nodig.
