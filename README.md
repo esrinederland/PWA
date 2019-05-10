@@ -31,7 +31,6 @@ Wij denken door deze app te ontwikkelen binnen dit innovatietraject de klant te 
 
 ### Team
 - Bert Vermeij (Account Manager)
-- Arjan van Zutphen (Developer)
 - Maarten van Hulzen (Developer)
 - Mark Jagt (Developer / Scrum Master)
 - Maartje Holtslag (Developer / Communicatie)
