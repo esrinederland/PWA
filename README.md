@@ -25,15 +25,15 @@ Zonder dit voorbeeldproject zullen JavaScript ontwikkelaars eerder kiezen voor b
 Bovendien is dit innovatietraject een invulling van een directe klantvraag die we anders via een partner hadden moeten invullen.
 Recentelijk kregen wij van enkele gemeenten uit de  Metropoolregio Rotterdam Den Haag (Zoetermeer, Rotterdam, Leidschendam-Voorburg, Capelle a/d IJssel en Den Haag) de vraag om een native app te ontwikkelen, in het kader van het project "Samen op pad". De vergrijzing in de regio heeft impact op de eisen die gesteld worden aan de fysieke stad. Denk bijvoorbeeld aan de woningvoorraad, voorzieningen en de inrichting en begaanbaarheid van de openbare ruimte en de toegankelijkheid van (openbare) gebouwen. Het doel van “Samen op pad” is om met slim (her)gebruik van digitale informatie bij te dragen aan een verbeterde afstemming van de gebouwde omgeving op de veranderende eisen van de bewoners. Een specifiek thema binnen het project is toegankelijkheid van de steden in de metropoolregio voor mensen met een beperking. De gemeenten faciliteren en organiseren dat met heldere digitale informatievoorziening, open data en slimme toepassingen. Een ander doel van “Samen op pad” is te laten zien dat samenwerking loont. De gemeenten besparen geld door informatie, apps en informatieproducten te delen met elkaar en met andere partijen. Dat toont men aan door in samenwerking allerlei voorbeelden van slimme toepassingen (apps) te maken. 
 
-Een voorbeeld is een app waarmee mindervaliden in de stad openbare toiletten kunnen vinden. Om innovatie en co-creatie te stimuleren wil “Samen op pad” een dergelijke app beschikbaar stellen. Er is reeds een prototype met de ArcGIS WebAppBuilder gemaakt en succesvol getest. Als volgende stap wil men deze app gebruiksvriendelijker maken en via de diverse stores aanbieden. 
+Een voorbeeld is een app waarmee mindervaliden in de stad openbare toiletten kunnen vinden. Om innovatie en co-creatie te stimuleren wil “Samen op pad” een dergelijke app beschikbaar stellen. Er is reeds een prototype met de WebAppBuilder for ArcGIS gemaakt en succesvol getest. Als volgende stap wil men deze app gebruiksvriendelijker maken en via de diverse stores aanbieden. 
 
-Wij denken door deze app te ontwikkelen binnen dit innovatietraject deze klant te kunnen helpen en tegelijk een referentie project te creëren waarmee de verkoop van Esri software gestimuleerd zou kunnen worden.
+Wij denken door deze app te ontwikkelen binnen dit innovatietraject de klant te kunnen helpen en tegelijk een referentie project te creëren, zowel voor developers als klanten, waarmee de verkoop van Esri software gestimuleerd zou kunnen worden.
 
 ### Team
-- Bert Vermeij (Account manager)
+- Bert Vermeij (Account Manager)
 - Arjan van Zutphen (Developer)
 - Maarten van Hulzen (Developer)
-- Mark Jagt (Developer / Scrum master)
+- Mark Jagt (Developer / Scrum Master)
 - Maartje Holtslag (Developer / Communicatie)
 - Antoine Gribnau (Klant: Gemeente Den Haag)
 
