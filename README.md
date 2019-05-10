@@ -5,30 +5,36 @@ Vanuit klanten krijgen we regelmatig de vraag of het mogelijk is native apps te 
 Elk platform (IoS, Android, Windows) heeft hiervoor zijn eigen methode. 
 Wat er voor zorgt dat je als ontwikkelaar, voor het maken van 1 app, tot wel 3 verschillende apps moet ontwikkelen en onderhouden. 
 Daarnaast moet je ook verstand hebben van de verschillende ontwikkeltalen.
+
 Omdat dit een uitdaging is die meer ontwikkelaars tegenkomen is er een nieuwe trend in web development: Progressive Web Apps (PWA). Dit zijn webapplicaties die zich op een device gedragen als een native app.
 Ze hebben niet alle capabilities van een native app zoals toegang tot opslag en specifieke hardware, maar ze ondersteunen wel belangrijke zaken als locatie en notifications. 
 Ze hebben net als een native app een icon op je home screen en ze openen in een eigen window, dus niet in de browser.
 De gebruikerservaring is dus vrijwel identiek aan die van een native app. Vaak onstaat de vraag naar een native app uit de wens om deze te kunnen plaatsen in de app stores. 
 Eén van de voordelen van een PWA t.o.v. een reguliere web applicatie is dan ook dat ze ook in de diverse app stores geplaatst kunnen worden. Dit geldt voor zowel de Apple App Store, Google Play Store als de Microsoft Store.
+
 De (internationale) Developer Community bestaat voor een groot gedeelte uit JavaScript ontwikkelaars. Ook onder ontwikkelaars die met Esri technologie werken is de JavaScript API één van de meest gebruikte.
 Wanneer deze ontwikkelaars applicaties maken voor het gebruik op mobiele devices maken ze vaak de keuze om een responsive web applicatie te maken. Deze werken prima op mobiele devices maar hebben een minder vloeiende user experience.
 Ook zijn deze niet via de app stores te distribueren. Daarnaast zouden JavaScript ontwikkelaars nieuwe programmeertalen moeten leren om écht native apps te bouwen.
 Voor deze groep bieden PWA's dus de mogelijkheid om hun bestaande skillset te gebruiken voor het ontwikkelen van applicaties met een native 'look and feel'.
 Deze kunnen volledig in JavaScript worden ontwikkeld en dus ook met de ArcGIS JavaScript API.
+
 Het resultaat van dit innovatietraject is een voorbeeld voor een grote groep (Esri) JavaScript ontwikkelaars hoe ze met hun bestaande skillset betere applicaties kunnen ontwikkelen voor het gebruik op mobiele devices. 
 Daarmee kunnen ze onze bestaande, en potentieel nieuwe, klanten beter bedienen wat kan leiden tot een toename van de verkoop van Esri software (met name User Types) en potentieel een vebreding van het gebruik van Esri software in de markt.
 Zonder dit voorbeeldproject zullen JavaScript ontwikkelaars eerder kiezen voor bestaande voorbeelden van PWA's waarin concurrerende technologie wordt gebruikt.
 Bovendien is dit innovatietraject een invulling van een directe klantvraag die we anders via een partner hadden moeten invullen.
+
 Recentelijk kregen wij van enkele gemeenten uit de metropoolregio (Zoetermeer, Rotterdam, Leidschendam-Voorburg, Capelle a/d IJssel en Den Haag) de vraag om een native app te ontwikkelen. 
 Ook hier was het kunnen aanbieden van de app in de diverse app stores een voorname drijfveer. Zij willen in het kader van het project 'Samen op Pad' een app beschikbaar stellen waarin mindervaliden openbare toiletten in hun omgeving kunnen vinden.
 Wij denken door deze app te ontwikkelen binnen dit innovatietraject deze klant te kunnen helpen en tegelijk een referentie project te creëren waarmee de verkoop van Esri software gestimuleerd zou kunnen worden.
+
 ### Team
-- Bert Vermeij
-- Arjan van Zutphen
-- Maarten van Hulzen
-- Mark Jagt
-- Maartje Holtslag
-- Antoine Gribnau (Gemeente Den Haag)
+- Bert Vermeij (Account manager)
+- Arjan van Zutphen (Developer)
+- Maarten van Hulzen (Developer)
+- Mark Jagt (Developer / Scrum master)
+- Maartje Holtslag (Developer / Communicatie)
+- Antoine Gribnau (Klant: Gemeente Den Haag)
+
 ### Benodigde dagen
 | Activiteit | # dagen |
 | :--- | :--- |
@@ -40,6 +46,7 @@ Wij denken door deze app te ontwikkelen binnen dit innovatietraject deze klant t
 | Contact met klant | 3-6 |
 | Overleg | 1-2 |
 | **Totaal** | **20-40** | 
+
 ### Investeringen
 De kosten voor het aanbieden van Progressive Web Apps verschillen per app store:
 - In de Microsoft Store kun je kostenloos je app te registeren. 
