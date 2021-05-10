@@ -1,0 +1,158 @@
+<html lang="nl">
+<head>
+  <title>Voorall</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.17/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.17/"></script>
+
+    <script>
+      require(["esri/views/MapView", "esri/WebMap"], function (
+        MapView,
+        WebMap
+      ) {
+        /************************************************************
+         * Creates a new WebMap instance. A WebMap must reference
+         * a PortalItem ID that represents a WebMap saved to
+         * arcgis.com or an on-premise portal.
+         *
+         * To load a WebMap from an on-premise portal, set the portal
+         * url with esriConfig.portalUrl.
+         ************************************************************/
+        var webmap = new WebMap({
+          portalItem: {
+            // autocasts as new PortalItem()
+            id: "5aa519901a2e493aa63df5c20fce0974"
+          }
+        });
+
+        /************************************************************
+         * Set the WebMap instance to the map property in a MapView.
+         ************************************************************/
+        var view = new MapView({
+          map: webmap,
+          container: "map"
+        });
+      });
+    </script> -->
+<script type="module">
+  import {loadModules} from "https://unpkg.com/esri-loader/dist/esm/esri-loader.js";
+
+  Vue.component("loadModules", loadModules);
+
+</script>
+</head>
+
+<body>
+
+<div id="app">
+  <div class="grid-container" id="profile">
+    <div class="header">Samen op pad</div>
+    
+    <div class="start centered-container">
+      <button class="action-text action" v-on:click="navigateHome()">Start</button>
+    </div>
+
+    <div class="profiel centered-container">
+      <button class="action-text action" v-on:click="navigateProfile()">Profiel</button>
+    </div>
+
+    <option-title v-if="data" v-bind:info="data[state].options[0]"></option-title>
+    <option-title v-if="data" v-bind:info="data[state].options[1]"></option-title>
+
+    <option-button v-if="data" v-bind:info="data[state].options[0]" v-on:fn="handleFunc"></option-button>
+    <option-button v-if="data" v-bind:info="data[state].options[1]" v-on:fn="handleFunc"></option-button>
+
+    <option-title v-if="data" v-bind:info="data[state].options[2]"></option-title>
+    <option-title v-if="data" v-bind:info="data[state].options[3]"></option-title>
+
+    <option-button v-if="data" v-bind:info="data[state].options[2]" v-on:fn="handleFunc"></option-button>
+    <option-button v-if="data" v-bind:info="data[state].options[3]" v-on:fn="handleFunc"></option-button>
+
+    <div class="tekst" v-if="data">
+      <h3 class="main-title"></h3>
+    </div>
+
+    <div class="footer">Footer</div>
+
+    <pop-up v-if="popup" v-bind:popup="popup" v-on:close_popup="closePopup"></pop-up>
+  </div>
+
+  <div class="top-container" id="menu">
+    <div class="homepage-header">SAMEN OP PAD</div>
+    <button v-on:click="navigateStart()"><img src="assets/back-arrow.png" class="back-arrow"></button>
+    <hr class="horizontal-line">
+
+    <button class="blue-button" v-on:click="locateUsingCurrentLocation()" alt="Mijn locatie">Mijn locatie</button></br>
+    <button class="blue-button" v-on:click="goToSearchPage()" alt="Adres of locatie zoeken">Adres of locatie zoeken</button></br>
+    <button class="blue-button" v-on:click="showList()" id="btn-show-list" alt="Lijst gekozen locaties">Lijst gekozen locaties</button>
+    <button class="blue-button" v-on:click="showMap()" id="btn-show-map" alt="Kaart gekozen locaties">Kaart gekozen locaties</button>
+    <br/>
+    <button class="blue-button" v-on:click="giveFeedback()" alt="Nieuwe locatie melden">Nieuwe locatie melden</button>
+    <!-- <a href=# id="showMap">Show map</a> -->
+    <hr class="horizontal-line bottom-line">
+  </div>
+
+  <div class="top-container" id="info-menu">
+  </br>
+    <button class="blue-button toilet-button" id="back-button" v-on:click="goBack()">
+      <div class="button-left button-content" id="button-name"></div>
+      <div class="button-right button-content" id="button-distance"></div>
+    </button></br>
+    <button class="blue-button" v-on:click="showRoute()"alt="Route tonen">Route tonen</button></br>
+    <!-- <a href=# id="showMap">Show map</a> -->
+    <hr class="horizontal-line bottom-line">
+  </div>
+  
+  <div class="full-container" id="search">
+    <div>
+      <div class="homepage-header">ADRES OF LOCATIE ZOEKEN</div>
+      <button v-on:click="goBack()"><img src="assets/back-arrow.png" class="back-arrow"></button>
+    </div>
+    <hr class="horizontal-line">
+    <div class="message halfway">Zoekbalk</div>
+    <input type="text" class="input-search" id="search-input">
+    <button class="blue-button" v-on:click="locateUsingAddress()" alt="Toon resultaten">Toon resultaten</button>
+    <button class="blue-button bottom-button" v-on:click="goToContactPage()" alt="Contact Voorall">Contact Voorall</button>
+  </div>
+
+  <div class="full-container" id="contact">
+    <div>
+      <div class="homepage-header">CONTACT VOORALL</div>
+      <button v-on:click="goBack()"><img src="assets/back-arrow.png" class="back-arrow"></button>
+    </div>
+    <hr class="horizontal-line">
+    Heeft u vragen?</br>
+    Contactgegevens</br>
+    Contactgegevens</br>
+  </div>
+
+  <div class="bottom-container" id="list">
+    <!-- <button class="blue-button" v-on:click="openInfo('test')">Gevonden locatie</button></br> -->
+  </div>
+
+  <div class="bottom-container" id="map">
+  </div>
+
+  <div class="bottom-container" id="info">
+    <div class="info-div" id="info-div-content">
+    </div>
+    <button class="blue-button bottom-button first-bottom-button" v-on:click="giveFeedback(false)"alt="Meld foutieve informatie">Meld foutieve informatie</button><br/>
+    <button class="blue-button bottom-button" v-on:click="goToContactPage()"alt="Contact Voorall">Contact Voorall</button>
+  </div>
+    
+</div>
+
+
+
+
+<script src="./vue.min.js"></script>
+<script src="./vue-router.js"></script>
+<script type="module" src="./main.js"></script>
+
+</body>
+</html>

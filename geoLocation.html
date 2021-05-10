@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>GeoLocationTest - 4.15</title>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.15/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.15/"></script>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+      #demo {
+  color: #888;
+        font-family: "Avenir Next W00", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        padding: 5px;
+        margin: 5px;
+        width: 130px;
+        text-align: left;
+        border: solid 2px #666;
+        border-radius: 4px;
+        background-color: #fff;
+        position:absolute;
+        bottom:25px;
+        left:15px;
+      }
+    </style>
+
+    <script>
+      require(["dojo/_base/array", "esri/WebMap", "esri/views/MapView", "esri/widgets/Locate",  "esri/geometry/geometryEngine", "esri/Graphic", "esri/geometry/Point", "esri/geometry/Polyline"], function(
+        array,
+        WebMap,
+        MapView,
+        Locate,
+        geometryEngine,
+        Graphic,
+        Point,
+        Polyline
+      ) {
+        let toiletsLayerTitle = "Locaties_Voorall_V_2";
+        var toiletsLayer;
+        var foundToilets;
+
+        console.time("View load time");
+        var map = new WebMap({
+          portalItem: {
+            // autocasts as new PortalItem()
+            id: "a1b6235478a048c59c9d26a4814b9aa3"
+          }
+        });
+
+        var view = new MapView({
+          center: [6, 52.5],
+          container: "viewDiv",
+          map: map,
+          zoom: 8
+        });
+
+        /*************************
+         * Create a point graphic
+         *************************/
+
+        // Create a symbol for drawing the point
+        var markerSymbol = {
+          type: "simple-marker", // autocasts as new SimpleMarkerSymbol()
+          color: [226, 119, 40],
+          outline: {
+            // autocasts as new SimpleLineSymbol()
+            color: [255, 255, 255],
+            width: 2
+          }
+        };
+
+        view.when(
+          function() {
+            console.timeEnd("View load time");
+            getLocation();
+
+            toiletsLayer = view.map.layers.find(function (layer) {
+                return layer.title === toiletsLayerTitle;
+            });
+          },
+          function(error) {
+            console.log(error.message);
+          }
+        );
+
+        view.on("click", function(){
+          console.log("view clicked");
+        //   view.graphics.removeAll();
+          navigator.geolocation.getCurrentPosition(
+          getToilets,
+          geolocationError,
+             {
+                 timeout: 20,
+                 enableHighAccuracy: true,
+                 maximumAge: Infinity
+             }
+            );
+        });
+
+        function getToilets(geolocation) {
+            var currentLocation = new Point({
+                latitude: 52.078405, // geolocation.coords.latitude,
+                longitude: 4.311128, // geolocation.coords.longitude,
+                spatialReference: {
+                    wkid: 4326
+                }
+            });
+            var buffer = geometryEngine.geodesicBuffer(currentLocation, 250, "meters");
+            intersectBuffer(buffer, currentLocation);
+            drawBuffer(buffer);
+            return view.goTo(currentLocation);
+        };
+
+        function drawBuffer(bufferGeometry) {
+            // view.graphics.remove(bufferGraphic);
+            bufferGraphic = new Graphic({
+                geometry: bufferGeometry,
+                symbol: {
+                    type: "simple-fill",
+                    color: "rgba(0,0,0,.15)",
+                    outline: {
+                        color: "rgba(0,0,0,.5)",
+                        width: 1
+                    }
+                }
+            });
+            view.graphics.add(bufferGraphic);
+        };
+
+        function intersectBuffer(bufferGeometry, currentLocation) {
+
+            var query = toiletsLayer.createQuery();
+            query.geometry = bufferGeometry;
+            query.spatialRelationship = "intersects";
+            toiletsLayer.queryFeatures(query).then(function (response) {
+                console.log("Response: ", response);
+
+                var allToilets = [];
+
+                array.forEach(response.features, function (feature) {
+                    // console.log("feature: ", feature);
+                    var line = new Polyline({
+                      hasZ: false,
+                      hasM: false,
+                      paths: [[currentLocation.y, currentLocation.x], [feature.geometry.y, feature.geometry.x]],
+                      spatialReference: {
+                        wkid: 4326
+                      }
+                    });
+
+                    var distance = Math.round(geometryEngine.geodesicLength(line, "meters"));
+                    allToilets.push([distance, feature]);
+                })
+                allToilets.sort(sortFunction);
+                foundToilets = allToilets.slice(0, 3);
+                console.log("foundToilets: ", foundToilets);
+            });
+                // For found features calculate distance
+
+            //     // Sort list to show 3 closest features
+
+            //     foundToilets = [];
+
+            //     // Fill foundToiletsDiv with found features (buttons) + distance + direction?
+            //     array.forEach(response.features, function (feature) {
+            //         console.log("feature: ", feature);
+
+            //         var distance = Math.round(geometryEngine.distance(currentLocation, feature.geometry, "meters"));
+            //         foundToilets.push([distance, feature]);
+            //     })
+            //     foundToilets.sort(sortFunction);
+            //     console.log("foundToilets: ", foundToilets);
+
+            // //   foundToiletsDivTitle.innerHTML = "Gevonden toiletten";
+
+            //     var i;
+
+            //     // array.forEach(foundToilets, function (toilet) {
+            //     //     if (i < 3) {
+            //     //         text += "X: " + toilet[1].geometry.x + " Y: " + toilet[1].geometry.y + ", Distance: " + toilet[0] + "<br>";
+            //     //     }
+            //     //     i++;
+            //     // })
+
+
+            //     var nrFound = 0;
+            //     for (var i = 0; i < foundToilets.length; i++) {
+            //         if (nrFound < 3){
+            //             // // Conditions that MUST match
+            //             // var matchConditions = ["miva", "breed", "ruim", "drempelvrij", "obstakelvrij", "beugels", "verschoontafel"]
+            //             // var matchFieldnames = ["MIVA_toilet", "", "Gebruik", "Entree", "", "Beugels", "Baby_verschoontafel"]
+            //             // var matchValues = [["2"], ["0"], ["1", "2"], ["2", "3", "4", "5"], ["0"], ["2"], ["2"]]
+            //             var match = true;
+            //             console.log("attributes: ", foundToilets[i][1]["attributes"]);
+            //             for (var j = 0; j < matchConditions.length; j++){
+            //                 if (localStorage.getItem(matchConditions[j]) == "true"){
+            //                     console.log(matchConditions[j], "true");
+            //                     console.log("value: ", foundToilets[i][1]["attributes"][matchFieldnames[j]]);
+            //                     if (matchValues[j].includes(foundToilets[i][1]["attributes"][matchFieldnames[j]])){
+            //                         console.log(matchValues[j]);
+            //                         match = false;
+            //                     }
+            //                 }
+            //             }
+            //             // check if the toilet is open
+            //             match = isOpen(foundToilets[i][1]["attributes"]);
+            //             if (match == true){
+            //                 var isPaid = foundToilets[i][1]["attributes"]["Kosten"] == null || foundToilets[i][1]["attributes"]["Kosten"] == "0" ? false : true;
+            //                 var closingTime = calcClosing(foundToilets[i][1]["attributes"]);
+            //                 addButton(i, "restroom.png", foundToilets[i][0] + " m", isPaid, closingTime, foundToiletsDiv, btnToiletClick);
+            //                 nrFound++;
+            //             }
+            //         }
+            //     }
+            //     if (foundToilets.length == 0){
+            //         console.log("No toilets found");
+            //         foundToiletsDiv.innerHTML = "Er konden helaas geen toiletten worden gevonden";
+            //     }
+
+                // console.log(buttons);
+                // var closeIntersect = document.getElementById("panelResponse");
+                // closeIntersect.className = "panel collapse in";
+
+                // foundToiletsDiv.innerHTML = buttons;
+            // });
+
+        };
+        
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(
+              showPosition,
+             // Optional settings below
+             geolocationError,
+             {
+                 timeout: 0,
+                 enableHighAccuracy: true,
+                 maximumAge: Infinity
+             }
+            ); //watchPosition
+          } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+        
+        function geolocationError(error) {
+          console.log(error);
+        }
+        
+        function showPosition(position) {
+          // Create a new JavaScript Date object based on the timestamp
+          // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+          var date = new Date(position.timestamp * 1000);
+          // Hours part from the timestamp
+          var hours = date.getHours();
+          // Minutes part from the timestamp
+          var minutes = "0" + date.getMinutes();
+          // Seconds part from the timestamp
+          var seconds = "0" + date.getSeconds();
+
+          // Will display time in 10:30:23 format
+          var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+          console.log(formattedTime);
+          x.innerHTML = "Latitude: " + position.coords.latitude +
+          "<br>Longitude: " + position.coords.longitude +
+          "<br>Speed: " + position.coords.speed +
+          "<br>Heading: " + position.coords.heading +
+          "<br>Accuracy: " + position.coords.accuracy +
+          "<br>Time: " + new Date().toLocaleString();
+
+          // First create a point geometry (this is your location)
+          var point = {
+            type: "point", // autocasts as new Point()
+            longitude: position.coords.longitude,
+            latitude: position.coords.latitude
+          };
+          
+          view.graphics.removeAll();
+          
+          // Create a graphic and add the geometry and symbol to it
+          var pointGraphic = new Graphic({
+            geometry: point,
+            symbol: markerSymbol
+          });
+          view.graphics.add(pointGraphic);
+          
+          view.goTo({
+            center: pointGraphic,
+            zoom: 18
+          })
+          .catch(function(error) {
+            if (error.name != "AbortError") {
+               console.error(error);
+            }
+          });
+        };
+
+        function sortFunction(a, b) {
+            if (a[0] === b[0]) {
+                return 0;
+            }
+            else {
+                return (a[0] < b[0]) ? -1 : 1;
+            }
+        };
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+    <div id="demo">Location goes here</div>
+  </body>
+</html>
+<html><head><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8"><meta name="Robots" content="NOINDEX " /></head><body></body>
+                <script type="text/javascript">
+                 var gearPage = document.getElementById('GearPage');
+                 if(null != gearPage)
+                 {
+                     gearPage.parentNode.removeChild(gearPage);
+                     document.title = "Error";
+                 }
+                 </script>
+                 </html>

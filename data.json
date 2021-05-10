@@ -1,0 +1,290 @@
+{
+  "data": {
+    "startup": {
+      "title": " ",
+      "subTitle": " ",
+      "options": [
+        {
+          "title": "blank",
+          "funcType": "blank",
+          "funcVal": "blank"
+        },
+        {
+          "title": "blank",
+          "funcType": "blank",
+          "funcVal": "blank"
+        },
+        {
+          "title": "blank",
+          "funcType": "blank",
+          "funcVal": "blank"
+        },
+        {
+          "title": "blank",
+          "funcType": "blank",
+          "funcVal": "blank"
+        }
+      ]
+    },
+    "profiel": {
+      "title": "Profielkeuzen",
+      "subTitle": "Maak uw keuze",
+      "options": [
+        {
+          "title": "Auditieve Beperking",
+          "funcType": "select profile",
+          "funcVal": "title"
+        },
+        {
+          "title": "Visuele Beperking",
+          "funcType": "select profile",
+          "funcVal": "title"
+        },
+        {
+          "title": "Lichamelijke Beperking",
+          "funcType": "select profile",
+          "funcVal": "title"
+        },
+        {
+          "title": "Geen Keuze",
+          "funcType": "select profile",
+          "funcVal": "title"
+        }
+      ]
+    },
+    "home": {
+      "title": "Hoofdscenario",
+      "subTitle": "Maak uw keuze",
+      "options": [
+        {
+          "title": "Vrije Tijd",
+          "funcType": "move",
+          "funcVal": "title"
+        },
+        {
+          "title": "Zorg en Welzijn",
+          "funcType": "move",
+          "funcVal": "title"
+        },
+        {
+          "title": "Gemeente",
+          "funcType": "move",
+          "funcVal": "title"
+        },
+        {
+          "title": "Onderwijs en Werk",
+          "funcType": "move",
+          "funcVal": "title"
+        }
+      ]
+    },
+    "Vrije Tijd": {
+      "title": "Vrije Tijd",
+      "subTitle": "Maak uw keuze",
+      "options": [
+        {
+          "title": "Sport, Cultuur, Recreatie",
+          "funcType": "move",
+          "funcVal": "title"
+        },
+        {
+          "title": "Cafés en Restaurants",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Overnachting",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Winkels",
+          "funcType": "result",
+          "funcVal": "title"
+        }
+      ]
+    },
+    "Sport, Cultuur, Recreatie": {
+      "title": "Sport, Cultuur, Recreatie",
+      "subTitle": "Maak uw keuze",
+      "options": [
+        {
+          "title": "Sport",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Cultuur en Recreatie",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "blank",
+          "funcType": "blank",
+          "funcVal": "blank"
+        },
+        {
+          "title": "blank",
+          "funcType": "blank",
+          "funcVal": "blank"
+        }
+      ]
+    },
+    "Zorg en Welzijn": {
+      "title": "Zorg en Welzijn",
+      "subTitle": "Maak uw keuze",
+      "options": [
+        {
+          "title": "Zorgpraktijken",
+          "funcType": "move",
+          "funcVal": "title"
+        },
+        {
+          "title": "Ziekenhuizen",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "GGZ (psychologen)",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Trouwlocaties, Uitvaartcentra en Begraafplaatsen",
+          "funcType": "result",
+          "funcVal": "title"
+        }
+      ]
+    },
+    "Zorgpraktijken": {
+      "title": "Zorgpraktijken",
+      "subTitle": "Maak uw keuze",
+      "options": [
+        {
+          "title": "Huisartsen",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Tandartsen",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "GGD en Centra voor Jeugd en Gezin",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Overige zorgverleners",
+          "funcType": "result",
+          "funcVal": "title"
+        }
+      ]
+    },
+    "Gemeente": {
+      "title": "Gemeente",
+      "subTitle": "Maak uw keuze",
+      "options": [
+        {
+          "title": "Stadhuis en Stadsdeelkantoren",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Servicepunten",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Politie",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Stembureaus",
+          "funcType": "result",
+          "funcVal": "title"
+        }
+      ]
+    },
+    "Onderwijs en Werk": {
+      "title": "Onderwijs en Werk",
+      "subTitle": "Maak uw keuze",
+      "options": [
+        {
+          "title": "Onderwijs",
+          "funcType": "move",
+          "funcVal": "title"
+        },
+        {
+          "title": "Bibliotheken",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Bedrijfsgebouwen en Vergaderlocaties",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Centrale overheid",
+          "funcType": "result",
+          "funcVal": "title"
+        }
+      ]
+    },
+    "Onderwijs": {
+      "title": "Onderwijs",
+      "subTitle": "Maak uw keuze",
+      "options": [
+        {
+          "title": "Basisscholen",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Middelbare scholen",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "MBO, HBO en WO",
+          "funcType": "result",
+          "funcVal": "title"
+        },
+        {
+          "title": "Overig onderwijs",
+          "funcType": "result",
+          "funcVal": "title"
+        }
+      ]
+    },
+    "map": {
+      "title": " ",
+      "subTitle": " ",
+      "options": [
+        {
+          "title": "blank",
+          "funcType": "blank",
+          "funcVal": "blank"
+        },
+        {
+          "title": "blank",
+          "funcType": "blank",
+          "funcVal": "blank"
+        },
+        {
+          "title": "blank",
+          "funcType": "blank",
+          "funcVal": "blank"
+        },
+        {
+          "title": "blank",
+          "funcType": "blank",
+          "funcVal": "blank"
+        }
+      ]
+    }
+  }
+}
